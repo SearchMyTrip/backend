@@ -9,9 +9,7 @@ dotenv.config();
 const { PORT } = process.env;
 const app = express();
 
-app.use(
-  cors({ origin: ["https://traverse-nepal.web.app", "http://localhost:3000"] })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {

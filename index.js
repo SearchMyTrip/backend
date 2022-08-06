@@ -9,12 +9,14 @@ dotenv.config();
 const { PORT } = process.env;
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({ origin: ["https://traverse-nepal.web.app", "http://localhost:3000"] })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Traverse App backend API.")
-})
+  res.send("Traverse App backend API.");
+});
 
 app.use("/auth", authRouter);
 app.use("/favourites", favouritesRouter);

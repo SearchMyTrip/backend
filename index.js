@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.routes.js";
 import favouritesRouter from "./routes/favourites.routes.js";
+import profileRouter from "./routes/profile.routes.js";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRouter);
 app.use("/favourites", favouritesRouter);
+app.use("/profile", profileRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);

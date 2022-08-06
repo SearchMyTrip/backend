@@ -12,6 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Traverse App backend API.")
+})
+
 app.use("/auth", authRouter);
 app.use("/favourites", favouritesRouter);
 

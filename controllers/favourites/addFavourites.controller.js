@@ -4,8 +4,9 @@ const addFavourites = async (req, res) => {
   try {
     const { image, description, name, location, visited } = req.body;
 
-    if (!image || !description || !name || !location || !visited)
+    if (!image || !description || !name || !location || !visited){
       return res.status(400).json({ success: false, error: "Invalid data."});
+    }
 
     let [alreadyExistingFavourite] = await connection.query(
       "select * from favourites where uid = ? and name = ?",
